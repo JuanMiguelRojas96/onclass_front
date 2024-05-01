@@ -1,0 +1,13 @@
+<li class="item"
+
+[style.fontSize]="fontSize"
+[style.padding]="padding"
+[style.aria-label]="value || text">
+
+  <img class="item__image" *ngIf="image" [src]="image" 
+  [style.height]="img_height" 
+  [style.width]="img_width" alt={{text}}>
+  
+  <span class="item__text"> {{text}} </span>
+
+</li>

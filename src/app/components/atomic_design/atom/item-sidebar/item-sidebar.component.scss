@@ -1,0 +1,23 @@
+.item{
+  list-style: none;
+  background-color:#FDF1E9 ;
+  color: #E7833D;
+  font-family: 'Poppins';
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+
+  &__image{
+    margin-right: 0.5rem; 
+  }
+  &:hover{
+    cursor: pointer;
+    background-color: #E7833D66;
+    font-weight: bolder;
+    border-radius: 10px;
+
+  }
+
+}
