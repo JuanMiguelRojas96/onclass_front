@@ -1,0 +1,19 @@
+<ul class="sidebar">
+
+  <div class="sidebar__logo">
+    <img class="sidebar__image" [src]="image" [style.height]="img_height" [style.max-width]="img_width" alt="Logo">
+  </div>
+
+
+  <app-item-sidebar class="sidebar__item" *ngFor="let item of items" 
+  [text]="item.text"
+  [fontSize]="item.fontSize"
+  [padding]="item.padding"
+  [value]="item.value"
+  [image]="item.image"
+  [img_height]="item.img_height"
+  [img_width]="item.img_width">
+  </app-item-sidebar>
+
+
+</ul>

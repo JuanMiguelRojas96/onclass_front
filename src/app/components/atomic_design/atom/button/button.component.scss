@@ -1,0 +1,25 @@
+.button{
+  display: flex;
+  border: none;
+  background-color: #E7833D;
+  font-family: 'Poppins';	
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 32px;
+
+
+
+  &__image{
+    margin-right: 0.5rem;
+  
+  }
+
+  &:hover{
+    cursor: pointer;
+    background-color: #e76609;
+  }
+
+
+}
