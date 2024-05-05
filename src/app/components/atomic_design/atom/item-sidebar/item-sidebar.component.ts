@@ -1,22 +1,26 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+export interface ItemSidebar {
+  text: string;
+  value: string;
+  routerLink: string;
+  image: string;
+}
+
 @Component({
   selector: 'app-item-sidebar',
   templateUrl: './item-sidebar.component.html',
   styleUrls: ['./item-sidebar.component.scss']
 })
+
 export class ItemSidebarComponent implements OnInit {
 
-
-  @Input() text:string = '';
-  @Input() fontSize:string = '';
-  @Input() padding:string = '16px 24px 16px 24px';
-  @Input() value:string = '';
-
-  @Input() image:string = '';
-  @Input() img_height:string = '20px';
-  @Input() img_width:string = '20px';
-
+  @Input() item: ItemSidebar = {
+    text: '',
+    value: '',
+    routerLink: '',
+    image: ''
+  };
 
 
   constructor() { }

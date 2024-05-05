@@ -1,0 +1,18 @@
+<li class="item" [style.aria-label]="item.value || item.name">
+
+  <div class="item__content">
+    <div class="item__text">
+      <h1 class="item__name">{{ item.name | capitalizeFirstLetter }}</h1>
+      <p class="item__description">{{ item.description }}</p>
+    </div>
+
+    <div class="item__button">
+      <button class="item__more">
+        <img class="item__image-button" [src]="item.image_button" alt="button mor">
+      </button>
+    </div>
+  </div>
+  <div>
+    <hr class="item__divider" />
+  </div>
+</li>

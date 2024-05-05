@@ -1,0 +1,20 @@
+.content{
+  height: 100%;
+  padding-inline-start: 0 !important;
+
+  &__container-texto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+
+  &__texto {
+    font-family: 'Poppins', sans-serif;
+    font-size: 21px ;
+    color: #E7833D;
+    width: auto;
+  }
+
+  
+}

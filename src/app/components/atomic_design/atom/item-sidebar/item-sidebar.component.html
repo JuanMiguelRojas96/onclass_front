@@ -1,13 +1,12 @@
-<li class="item"
+<li
+  class="item"
+  routerLinkActive="item__active"
+  [style.aria-label]="item.value || item.text"
+>
+  <img class="item__image" *ngIf="item.image" [src]="item.image" alt="{{ item.text }}" />
 
-[style.fontSize]="fontSize"
-[style.padding]="padding"
-[style.aria-label]="value || text">
-
-  <img class="item__image" *ngIf="image" [src]="image" 
-  [style.height]="img_height" 
-  [style.width]="img_width" alt={{text}}>
+  <a class="item__link" routerLink="{{ item.routerLink }}">
+    <span class="item__text">{{ item.text }}</span>
+  </a>
   
-  <span class="item__text"> {{text}} </span>
-
 </li>

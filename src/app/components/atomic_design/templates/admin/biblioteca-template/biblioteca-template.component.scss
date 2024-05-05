@@ -1,0 +1,12 @@
+.biblioteca-template{
+
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+
+  &__header{
+    display: flex;
+    flex-direction: column;
+  }
+
+}

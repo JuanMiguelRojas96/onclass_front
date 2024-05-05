@@ -1,13 +1,7 @@
-<button class="button"
-[style.fontSize]="fontSize"
-[style.padding]="padding"
-[style.borderRadius]="borderRadius"
-[style.aria-label]="value || text">
+<button class="button" [style.aria-label]="value || text">
 
-  <img class="button__image" *ngIf="image" 
-  [src]="image" [style.height]="img_height" 
-  [style.width]="img_width" alt={{text}}>
+  <img class="button__image" *ngIf="image" [src]="image" alt="{{ text }}" />
+
+  <span class="button__text">{{ text }}</span>
   
-   <span class="button__text">{{ text }}</span>
-
-  </button>
+</button>

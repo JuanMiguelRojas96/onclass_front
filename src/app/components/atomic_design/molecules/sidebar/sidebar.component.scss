@@ -1,11 +1,11 @@
 .sidebar{
   list-style-type: none;
   background-color:#FDF1E9 ;
-  margin-top: 0;
-  padding-top: 0;
-  padding-left: 0;
-  max-width: 30%;
-  height: 100vh;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
 
   &__logo{
     text-align: center;
@@ -13,9 +13,20 @@
     padding-right: 10px;
     padding-left: 10px;
     padding-top: 10px;
-    &__image{
-      display: inline-block;
-      vertical-align: middle;
-    }
   }
+
+  &__image{
+    height: auto;
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 1150px) {
+    width: 30%; 
+  }
+  @media (max-width: 768px) {
+    max-width: 50%; 
+  }
+
 }

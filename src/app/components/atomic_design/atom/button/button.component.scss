@@ -2,8 +2,10 @@
   display: flex;
   border: none;
   background-color: #E7833D;
-  font-family: 'Poppins';	
+  font-family: 'Poppins';
   font-weight: bold;
+  font-size: 16px;
+  padding: 16px 24px 16px 24px;
   align-items: center;
   justify-content: center;
   color: white;
@@ -13,7 +15,9 @@
 
   &__image{
     margin-right: 0.5rem;
-  
+    width: 16px;
+    height: 16px;
+
   }
 
   &:hover{
