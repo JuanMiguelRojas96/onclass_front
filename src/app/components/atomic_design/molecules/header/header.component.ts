@@ -1,5 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+export interface Header {
+  backgroundColor: string;
+  img_profile: string;
+  img_logo?: string;
+}
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,10 +13,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() backgroundColor: string = '';
-  
-  @Input() img_profile: string = '';
-  @Input() img_logo: string = '';
+  @Input() header: Header = {
+    backgroundColor: '',
+    img_profile: '',
+    img_logo: '',
+  }
+
 
   constructor() { }
 

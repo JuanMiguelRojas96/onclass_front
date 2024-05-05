@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Header } from '../../molecules/header/header.component';
 
 @Component({
   selector: 'app-navbar',
@@ -7,11 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  @Input() bg_color_header: string = '';
-  @Input() img_profile: string = '';
-
-  @Input() img_sidebar: string = '';
-  @Input() items_sidebar: any[] = [];
+ @Input() header : Header = {
+   backgroundColor: '',
+   img_profile: '',
+   img_logo: '',
+ }
 
 
   constructor() { }

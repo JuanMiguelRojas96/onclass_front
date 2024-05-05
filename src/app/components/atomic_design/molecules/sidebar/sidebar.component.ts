@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ItemSidebar } from '../../atom/item-sidebar/item-sidebar.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,11 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() items: any[] = [];
+  items: ItemSidebar[] = [
+    {text: 'Inicio',value: 'inicio', routerLink: '/inicio', image: '../../../../../assets/images/icons/Inicio.png'},
+    {text: 'Biblioteca',value: 'biblioteca', routerLink: '/biblioteca', image: '../../../../../assets/images/icons/Biblioteca.png'},
+  ];
 
-  @Input() image: string = '';
-  @Input() img_height: string = 'auto';
-  @Input() img_width: string = '60%';
+  image: string = '../../../../../assets/images/logos/logoOnClass.png';
 
   
   constructor() { }

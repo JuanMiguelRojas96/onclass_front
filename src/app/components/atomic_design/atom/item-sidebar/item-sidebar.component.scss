@@ -3,20 +3,42 @@
   background-color:#FDF1E9 ;
   color: #E7833D;
   font-family: 'Poppins';
-  font-weight: bold;
+  font-weight: normal;
+  font-size: 1.5rem;
+  padding: 16px 24px 16px 24px;
   align-items: center;
   justify-content: center;
   display: flex;
 
+  &__link{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+
+    &__text{
+      text-align: center;
+    }
+  }
+
 
   &__image{
-    margin-right: 0.5rem; 
+    margin-right: 0.5rem;
+    height: 20px;
+    width: 20px;
   }
-  &:hover{
+
+  &:hover, &__active{
     cursor: pointer;
     background-color: #E7833D66;
     font-weight: bolder;
     border-radius: 10px;
+
+  }
+
+  @media (max-width: 768px) {
+    &__text{
+      font-size: 12px;
+    }
 
   }
 

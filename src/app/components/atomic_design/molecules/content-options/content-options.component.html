@@ -1,0 +1,12 @@
+<ul class="content">
+  <app-item-content
+    *ngFor="let item of items"
+    [item]="item"
+  ></app-item-content>
+
+  <div class="content__container-texto" *ngIf="!is_content">
+    <h5 class="content__texto" >{{ 'Crea una ' + texto }}</h5>
+  </div>
+
+
+</ul>
