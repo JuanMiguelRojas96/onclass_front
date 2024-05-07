@@ -7,10 +7,8 @@ import { UserOption } from '../../atom/user-option/user-option.component';
   styleUrls: ['./body-admin.component.scss']
 })
 export class BodyAdminComponent implements OnInit {
-  
-  @Input() button_text: string = '';
-  @Input() button_value: string = '';
-  @Input() button_image: string = '';
+
+
 
   @Input() options: UserOption[] = [];
 

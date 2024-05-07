@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ItemContent } from '../../atom/item-content/item-content.component';
+import { ButtonProps } from '../../atom/button/button.component';
 
 @Component({
   selector: 'app-content-options',
@@ -10,10 +11,13 @@ export class ContentOptionsComponent implements OnInit {
 
   @Input() items: ItemContent[] = []
 
-  @Input() is_content: boolean = false;
   @Input() texto: string = '';
 
-
+  @Input() buttonProps: ButtonProps = {
+    text: '',
+    value: '',
+    image: ''
+  }
 
   constructor() {}
 

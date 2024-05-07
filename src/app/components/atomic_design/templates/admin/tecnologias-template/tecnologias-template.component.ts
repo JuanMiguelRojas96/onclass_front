@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ItemContent } from '../../../atom/item-content/item-content.component';
+import { ButtonProps } from '../../../atom/button/button.component';
 
 @Component({
   selector: 'app-tecnologias-template',
@@ -10,9 +11,12 @@ export class TecnologiasTemplateComponent implements OnInit {
 
   @Input() items: ItemContent[] = [];
 
-
-  @Input() is_content: boolean = false;
   @Input() texto: string = '';
+
+  @Input() buttonProps: ButtonProps = {
+    text: '',
+    value: '',
+  };
 
   constructor() { }
 

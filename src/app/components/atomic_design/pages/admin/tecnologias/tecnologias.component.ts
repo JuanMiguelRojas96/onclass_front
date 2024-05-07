@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TecnologiasService } from 'src/app/components/shared/services/tecnologias/tecnologias.service';
 import { ItemContent } from '../../../atom/item-content/item-content.component';
+import { InputModalComponent } from '../../../molecules/input-modal/input-modal.component';
+import { ButtonProps } from '../../../atom/button/button.component';
 
 @Component({
   selector: 'app-tecnologias',
@@ -12,28 +14,26 @@ export class TecnologiasComponent implements OnInit {
 
     items: ItemContent[] = [];
 
-    @Output() is_content: boolean;
+    texto: string = 'Tecnologías';
+
+    buttonProps: ButtonProps = {
+      text: 'Crear',
+      value: 'Crear',
+    }
 
     private subscription: Subscription;
 
 
-
-
-
   constructor(private tecnologiasService: TecnologiasService) {
-    this.is_content = false;
     this.subscription = new Subscription;
    }
 
   ngOnInit(): void {
-
-    if (this.items.length > 0){
-      this.is_content = true;
-    }else{
-      this.getTecnologias();
-    }
-
+    this.getTecnologias();
   }
+
+
+
 
   getTecnologias(){
     this.subscription = this.tecnologiasService.getTecnologias().subscribe((data: any) => {
@@ -44,9 +44,9 @@ export class TecnologiasComponent implements OnInit {
           image_button: '../../../../../../assets/images/icons/grab_button.svg'
         }
       });
-      this.is_content = data != null;
     });
   }
+
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

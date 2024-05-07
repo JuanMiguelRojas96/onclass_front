@@ -18,10 +18,6 @@ export class BibliotecaTemplateComponent implements OnInit {
   @Input() options: any[] = [];
 
   @Input() text: string = '';
-  
-  @Input() button_text: string = '';
-  @Input() button_value: string = '';
-  @Input() button_image: string = '';
 
 
   constructor() { }

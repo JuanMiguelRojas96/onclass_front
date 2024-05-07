@@ -1,5 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+export interface ButtonProps {
+  text: string;
+  value: string;
+  image?: string;
+}
+
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
@@ -7,11 +13,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
 
-  @Input() text: string = '';
-  @Input() value: string = '';
+  @Input() buttonProps: ButtonProps = {
+    text: '',
+    value: '',
+    image: ''
+  }
 
-  @Input() image: string = '';
-  
   constructor() { }
 
   ngOnInit(): void {

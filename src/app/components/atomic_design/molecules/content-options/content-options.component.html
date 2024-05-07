@@ -4,9 +4,13 @@
     [item]="item"
   ></app-item-content>
 
-  <div class="content__container-texto" *ngIf="!is_content">
+  <div class="content__container-texto" *ngIf="items.length === 0 ">
     <h5 class="content__texto" >{{ 'Crea una ' + texto }}</h5>
   </div>
 
+  <app-button
+  class="content__button"
+  [buttonProps]="buttonProps"
+  ></app-button>
 
 </ul>
