@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export interface InputProps {
   label: string;
   placeholder: string;
+  formKey: string;
 }
 
 @Component({
@@ -14,12 +15,21 @@ export class InputComponent implements OnInit {
 
   @Input() inputProps: InputProps = {
     label: '',
-    placeholder: ''
+    placeholder: '',
+    formKey: '',
   };
+
+  @Output() valueChanged = new EventEmitter()
 
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  onInputChange(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.valueChanged.emit(value);
   }
 
 }

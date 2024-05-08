@@ -4,8 +4,10 @@
   margin: 0;
   padding: 0;
   height: 100%;
-  position: fixed;
+  width: 30vw;
   bottom: 0;
+  position: fixed;
+  top: 0 ;
 
   &__logo{
     text-align: center;
@@ -22,11 +24,5 @@
     vertical-align: middle;
   }
 
-  @media (max-width: 1150px) {
-    width: 30%; 
-  }
-  @media (max-width: 768px) {
-    max-width: 50%; 
-  }
 
 }

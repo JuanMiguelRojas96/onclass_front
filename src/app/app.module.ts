@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ModalModule } from '@developer-partners/ngx-modal-dialog';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +22,6 @@ import { SidebarComponent } from './components/atomic_design/molecules/sidebar/s
 
 //Organismos
 import { BodyAdminComponent } from './components/atomic_design/organisms/body-admin/body-admin.component';
-import { NavbarComponent } from './components/atomic_design/organisms/navbar/navbar.component';
 
 //Templates
 import { InicioTemplateComponent } from './components/atomic_design/templates/inicio-template/inicio-template.component';
@@ -52,7 +51,6 @@ import { CapitalizeFirstLetterPipe } from './components/shared/pipes/capitalize-
     ItemSidebarComponent,
     SidebarComponent,
     HeaderComponent,
-    NavbarComponent,
     UserOptionComponent,
     NavOptionsComponent,
     InicioTemplateComponent,
@@ -74,7 +72,7 @@ import { CapitalizeFirstLetterPipe } from './components/shared/pipes/capitalize-
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ModalModule
+    FormsModule
   ],
   providers: [
     TecnologiasService

@@ -1,4 +1,4 @@
-<button class="button" [style.aria-label]="buttonProps.value || buttonProps.text">
+<button [type]="buttonProps.type" class="button" [style.aria-label]="buttonProps.value || buttonProps.text" (click)="onClick($event)">
 
   <img class="button__image" *ngIf="buttonProps.image" [src]="buttonProps.image" alt="{{ buttonProps.text }}" />
 

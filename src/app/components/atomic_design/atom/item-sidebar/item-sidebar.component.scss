@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  max-width: 100%;
 
   &__link{
     display: block;
@@ -32,13 +33,6 @@
     background-color: #E7833D66;
     font-weight: bolder;
     border-radius: 10px;
-
-  }
-
-  @media (max-width: 768px) {
-    &__text{
-      font-size: 12px;
-    }
 
   }
 

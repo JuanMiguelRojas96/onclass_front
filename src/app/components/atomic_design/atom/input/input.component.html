@@ -1,6 +1,6 @@
 <div class="input">
   <label class="input__label" for="input"> {{ inputProps.label }} </label>
-  <input id="input" placeholder="{{ inputProps.placeholder }}" type="text" class="input__input" [style.aria-label]="inputProps.placeholder">
+  <input id="input" placeholder="{{ inputProps.placeholder }}" type="text" class="input__input" [style.aria-label]="inputProps.placeholder" (input)="onInputChange($event)">
 </div>
 
 

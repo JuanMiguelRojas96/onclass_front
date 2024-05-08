@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ItemContent } from '../../../atom/item-content/item-content.component';
 import { ButtonProps } from '../../../atom/button/button.component';
+import { InputProps } from '../../../atom/input/input.component';
 
 @Component({
   selector: 'app-tecnologias-template',
@@ -17,8 +18,26 @@ export class TecnologiasTemplateComponent implements OnInit {
     text: '',
     value: '',
   };
+  @Input() modal_buttonProps: ButtonProps = {
+    text: '',
+    value: '',
+  };
+
+  @Input() inputs: InputProps[] = [];
+
+  @Output() formSubmit = new EventEmitter();
+  @Output() pageSizeChange = new EventEmitter<string>();
+
+
 
   constructor() { }
+
+  onSubmit(formData: any) {
+    this.formSubmit.emit(formData)
+  }
+  pageSizeChangeEmit(event: string) {
+    this.pageSizeChange.emit(event)
+  }
 
   ngOnInit(): void {
   }

@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   max-height: 100vh;
-  width: 65%;
+  width: 100%;
   margin-left: auto;
 
   &__text{
@@ -18,8 +18,5 @@
     width: 100%;
   }
 
-  @media (max-width: 1400px) {
-    width: 60%;
-  }
 }
 
