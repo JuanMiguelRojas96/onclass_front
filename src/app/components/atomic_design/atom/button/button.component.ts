@@ -1,4 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+export interface ButtonProps {
+  text: string;
+  value: string;
+  image?: string;
+  type?: string;
+}
 
 @Component({
   selector: 'app-button',
@@ -7,12 +14,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
 
-  @Input() text: string = '';
-  @Input() value: string = '';
+  @Input() buttonProps: ButtonProps = {
+    text: '',
+    value: '',
+    image: '',
+    type: 'button',
+  }
 
-  @Input() image: string = '';
-  
+  @Output() buttonClick = new EventEmitter();
+
   constructor() { }
+
+  onClick(event: Event) {
+    event.preventDefault();
+    this.buttonClick.emit();
+  }
 
   ngOnInit(): void {
   }

@@ -1,17 +1,21 @@
 <body class="biblioteca-template">
 
   <header class="biblioteca-template__header">
-    <app-navbar class="biblioteca-template__navbar"
-    [header]="header"
-  >
-  </app-navbar>
-</header>
+    <app-header [header]="header"></app-header>
 
-  <app-body-admin class="biblioteca-template__body-admin"
-  
-    [options]="options"
-    [button_text]="button_text"
-    [button_value]="button_value"
-    [button_image]="button_image"
-  ></app-body-admin>
+  </header>
+
+
+  <main class="biblioteca-template__main">
+
+    <nav class="biblioteca-template__sidebar">
+      <app-sidebar></app-sidebar>
+    </nav>
+
+    <app-body-admin class="biblioteca-template__body-admin"
+      [options]="options"
+    ></app-body-admin>
+
+  </main>
+
 </body>

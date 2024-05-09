@@ -1,4 +1,13 @@
 <app-content-options
 [items]="items"
-[is_content]="is_content"
-[texto]="texto"></app-content-options>
+[texto]="texto"
+[buttonProps]="buttonProps"
+(buttonClick)="modal.changeShow()"
+(pageSizeChange)="pageSizeChangeEmit($event)"
+></app-content-options>
+<app-input-modal #modal
+[title]="texto"
+[buttonProps]="modal_buttonProps"
+[inputs]="inputs"
+(formSubmit)="onSubmit($event)"
+></app-input-modal>

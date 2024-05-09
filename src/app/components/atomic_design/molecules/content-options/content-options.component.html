@@ -1,12 +1,33 @@
 <ul class="content">
-  <app-item-content
+
+  <div class="content__dropdown" (click)="toggleDropdown()">
+    {{ selectedSize.text}}
+
+    <img class="content__dropdown-arrow" src="../../../../../assets/images/icons/Dropdown.svg" alt="Escoge un tamaño de página" [ngClass]="{ 'active': dropdownVisible }">
+
+    <ul class="content__dropdown-options" *ngIf="dropdownVisible">
+
+      <li class="content__dropdown-option" *ngFor="let size of pageSizes" (click)="onPageSizeSelect(size)">
+        {{ size.text }}
+      </li>
+
+    </ul>
+
+  </div>
+
+  <app-item-content class="content__item"
     *ngFor="let item of items"
     [item]="item"
   ></app-item-content>
 
-  <div class="content__container-texto" *ngIf="!is_content">
+  <div class="content__container" *ngIf="items.length === 0 ">
     <h5 class="content__texto" >{{ 'Crea una ' + texto }}</h5>
   </div>
 
+  <app-button
+  class="content__button"
+  [buttonProps]="buttonProps"
+  (buttonClick)="onClick()"
+  ></app-button>
 
 </ul>

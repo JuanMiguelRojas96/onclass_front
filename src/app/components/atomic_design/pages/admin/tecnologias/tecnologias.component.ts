@@ -1,7 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TecnologiasService } from 'src/app/components/shared/services/tecnologias/tecnologias.service';
 import { ItemContent } from '../../../atom/item-content/item-content.component';
+import { ButtonProps } from '../../../atom/button/button.component';
+import { InputProps } from '../../../atom/input/input.component';
+import { Tecnologia } from 'src/app/components/shared/class/Tecnologia';
 
 @Component({
   selector: 'app-tecnologias',
@@ -11,32 +14,58 @@ import { ItemContent } from '../../../atom/item-content/item-content.component';
 export class TecnologiasComponent implements OnInit {
 
     items: ItemContent[] = [];
+    pageSize: string = '10';
 
-    @Output() is_content: boolean;
+    texto: string = 'Tecnologías';
+
+    buttonProps: ButtonProps = {
+      text: 'Crear',
+      value: 'Crear',
+      image: '../../../../../../assets/images/icons/Plus.svg',
+      type: 'submit'
+    }
+
+    modal_buttonProps: ButtonProps = {
+      text: 'Crear',
+      value: 'Crear',
+      type: 'submit'
+    }
+
+    inputs: InputProps[] = [
+      {label:'Nombre', placeholder:'Ingresa el nombre de la tecnologia', formKey:'name'},
+      {label:'Descripción', placeholder:'Ingresa la descripción de la tecnologia', formKey:'description'}
+    ];
 
     private subscription: Subscription;
 
 
-
-
-
   constructor(private tecnologiasService: TecnologiasService) {
-    this.is_content = false;
     this.subscription = new Subscription;
    }
 
   ngOnInit(): void {
+    this.getTecnologias();
+  }
 
-    if (this.items.length > 0){
-      this.is_content = true;
-    }else{
+  pageSizeChange(size: string){
+    this.pageSize = size;
+    this.getTecnologias();
+  }
+
+
+
+  postTecnologias(formData: Tecnologia){
+
+    this.tecnologiasService.postTecnologias(formData).subscribe((data: any) => {
+      console.log(data);
       this.getTecnologias();
-    }
-
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   getTecnologias(){
-    this.subscription = this.tecnologiasService.getTecnologias().subscribe((data: any) => {
+    this.subscription = this.tecnologiasService.getTecnologias(this.pageSize).subscribe((data: any) => {
       this.items = data.map((item: any) => {
         return {
           ...item,
@@ -44,9 +73,9 @@ export class TecnologiasComponent implements OnInit {
           image_button: '../../../../../../assets/images/icons/grab_button.svg'
         }
       });
-      this.is_content = data != null;
     });
   }
+
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

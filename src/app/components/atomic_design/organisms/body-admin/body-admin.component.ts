@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserOption } from '../../atom/user-option/user-option.component';
 
 @Component({
@@ -7,16 +7,16 @@ import { UserOption } from '../../atom/user-option/user-option.component';
   styleUrls: ['./body-admin.component.scss']
 })
 export class BodyAdminComponent implements OnInit {
-  
-  @Input() button_text: string = '';
-  @Input() button_value: string = '';
-  @Input() button_image: string = '';
 
+  
   @Input() options: UserOption[] = [];
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }

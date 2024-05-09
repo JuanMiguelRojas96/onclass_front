@@ -1,7 +1,7 @@
-<button class="button" [style.aria-label]="value || text">
+<button [type]="buttonProps.type" class="button" [style.aria-label]="buttonProps.value || buttonProps.text" (click)="onClick($event)">
 
-  <img class="button__image" *ngIf="image" [src]="image" alt="{{ text }}" />
+  <img class="button__image" *ngIf="buttonProps.image" [src]="buttonProps.image" alt="{{ buttonProps.text }}" />
 
-  <span class="button__text">{{ text }}</span>
-  
+  <span class="button__text">{{ buttonProps.text }}</span>
+
 </button>

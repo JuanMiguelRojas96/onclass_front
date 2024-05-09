@@ -1,5 +1,9 @@
 <app-tecnologias-template
 [items]="items"
-[is_content]="is_content"
-[texto]="'Tecnología'">
+[texto]="texto"
+[buttonProps]="buttonProps"
+[modal_buttonProps]="modal_buttonProps"
+[inputs]="inputs"
+(formSubmit)="postTecnologias($event)"
+(pageSizeChange)="pageSizeChange($event)">
 </app-tecnologias-template>

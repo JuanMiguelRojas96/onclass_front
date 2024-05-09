@@ -1,0 +1,22 @@
+<div class="input-modal" *ngIf="show">
+  <form class="input-modal__form" (ngSubmit)="onSubmit()">
+
+    <div class="input-modal__header">
+
+      <h2 class="input-modal__title"> {{ 'Crear ' + title }} </h2>
+      <button type="button" class="input-modal__close" (click)="changeShow()"> X </button>
+
+    </div>
+
+    <app-input class="input-modal__input" *ngFor="let inputProps of inputs"
+      [inputProps]="inputProps"
+      (valueChanged)="onInputChange(inputProps.formKey, $event)"
+      >
+    </app-input>
+
+    <app-button [buttonProps]="buttonProps" class="input-modal__button" (buttonClick)="onSubmit()"></app-button>
+
+  </form>
+
+</div>
+

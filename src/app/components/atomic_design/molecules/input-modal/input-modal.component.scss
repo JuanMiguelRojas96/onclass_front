@@ -1,0 +1,51 @@
+.input-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  z-index: 1000;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    padding: 24px 23px 34px 23px;
+    border: 1px solid #e7833d;
+    border-radius: 32px;
+    width: 40%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #e7833d;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__close {
+    color: #e7833d;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__button {
+    margin-top: 32px !important;
+    margin: auto;
+  }
+}
