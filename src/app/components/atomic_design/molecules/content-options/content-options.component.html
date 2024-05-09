@@ -30,4 +30,9 @@
   (buttonClick)="onClick()"
   ></app-button>
 
+  <app-pagination 
+  (pageChanged)="onPageChanged($event)"
+  [paginationProps]="paginationProps"
+  ></app-pagination>
+
 </ul>

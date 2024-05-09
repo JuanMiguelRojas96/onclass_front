@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ItemContent } from '../../../atom/item-content/item-content.component';
 import { ButtonProps } from '../../../atom/button/button.component';
 import { InputProps } from '../../../atom/input/input.component';
+import { PaginationProps } from '../../../atom/pagination/pagination.component';
 
 @Component({
   selector: 'app-tecnologias-template',
@@ -22,11 +23,16 @@ export class TecnologiasTemplateComponent implements OnInit {
     text: '',
     value: '',
   };
+  @Input() paginationProps: PaginationProps = {
+    sizeContent: 0,
+    sizePage: 0
+  }
 
   @Input() inputs: InputProps[] = [];
 
   @Output() formSubmit = new EventEmitter();
-  @Output() pageSizeChange = new EventEmitter<string>();
+  @Output() pageSizeChange = new EventEmitter<number>();
+  @Output() pageChanged = new EventEmitter<number>();
 
 
 
@@ -35,8 +41,11 @@ export class TecnologiasTemplateComponent implements OnInit {
   onSubmit(formData: any) {
     this.formSubmit.emit(formData)
   }
-  pageSizeChangeEmit(event: string) {
-    this.pageSizeChange.emit(event)
+  pageSizeChangeEmit(size: number) {
+    this.pageSizeChange.emit(size)
+  }
+  pageChangedEmit(page: number) {
+    this.pageChanged.emit(page)
   }
 
   ngOnInit(): void {

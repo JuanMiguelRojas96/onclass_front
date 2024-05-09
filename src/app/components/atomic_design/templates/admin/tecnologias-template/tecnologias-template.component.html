@@ -2,8 +2,10 @@
 [items]="items"
 [texto]="texto"
 [buttonProps]="buttonProps"
+[paginationProps]="paginationProps"
 (buttonClick)="modal.changeShow()"
 (pageSizeChange)="pageSizeChangeEmit($event)"
+(pageChanged)="pageChangedEmit($event)"
 ></app-content-options>
 <app-input-modal #modal
 [title]="texto"
