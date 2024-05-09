@@ -1,0 +1,29 @@
+.pagination{
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+  margin-right: 10%;
+  margin-top: 5%;
+  font-size: 0.8rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #828285;
+  padding: 0;
+
+  &__item{
+    cursor: pointer;
+    padding: 0.4em 1em;
+
+    &-arrow-left{
+      transform: rotate(180deg);
+    }
+
+    &.active{
+      color: #ffffff;
+      background-color: #E7833D;
+      border-radius: 50%;
+      box-shadow: 0 10px 20px rgba(231, 131, 61 , 0.7);
+    }
+
+  }
+}

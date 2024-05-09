@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TecnologiasService } from 'src/app/components/shared/services/tecnologias/tecnologias.service';
 import { ItemContent } from '../../../atom/item-content/item-content.component';
 import { ButtonProps } from '../../../atom/button/button.component';
 import { InputProps } from '../../../atom/input/input.component';
 import { Tecnologia } from 'src/app/components/shared/class/Tecnologia';
+import { PaginationProps } from '../../../atom/pagination/pagination.component';
 
 @Component({
   selector: 'app-tecnologias',
@@ -13,30 +14,36 @@ import { Tecnologia } from 'src/app/components/shared/class/Tecnologia';
 })
 export class TecnologiasComponent implements OnInit {
 
-    items: ItemContent[] = [];
-    pageSize: string = '10';
+  items: ItemContent[] = [];
+  pageSize: number = 10;
+  page: number = 0;
 
-    texto: string = 'Tecnologías';
+  texto: string = 'Tecnologías';
 
-    buttonProps: ButtonProps = {
-      text: 'Crear',
-      value: 'Crear',
-      image: '../../../../../../assets/images/icons/Plus.svg',
-      type: 'submit'
-    }
+  buttonProps: ButtonProps = {
+    text: 'Crear',
+    value: 'Crear',
+    image: '../../../../../../assets/images/icons/Plus.svg',
+    type: 'submit'
+  };
 
-    modal_buttonProps: ButtonProps = {
-      text: 'Crear',
-      value: 'Crear',
-      type: 'submit'
-    }
+  modal_buttonProps: ButtonProps = {
+    text: 'Crear',
+    value: 'Crear',
+    type: 'submit'
+  };
 
-    inputs: InputProps[] = [
-      {label:'Nombre', placeholder:'Ingresa el nombre de la tecnologia', formKey:'name'},
-      {label:'Descripción', placeholder:'Ingresa la descripción de la tecnologia', formKey:'description'}
-    ];
+  inputs: InputProps[] = [
+    { label: 'Nombre', placeholder: 'Ingresa el nombre de la tecnologia', formKey: 'name' },
+    { label: 'Descripción', placeholder: 'Ingresa la descripción de la tecnologia', formKey: 'description' }
+  ];
 
-    private subscription: Subscription;
+  paginationProps: PaginationProps = {
+    sizeContent: 0,
+    sizePage: 0
+  };
+
+  private subscription: Subscription;
 
 
   constructor(private tecnologiasService: TecnologiasService) {
@@ -47,25 +54,38 @@ export class TecnologiasComponent implements OnInit {
     this.getTecnologias();
   }
 
-  pageSizeChange(size: string){
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  pageSizeChange(size: number){
     this.pageSize = size;
     this.getTecnologias();
   }
 
+  pageChanged(page: number){
+    this.page = page;
+    this.getTecnologias();
+  }
+ 
 
+  postTecnologias(formData: Tecnologia) {
 
-  postTecnologias(formData: Tecnologia){
-
-    this.tecnologiasService.postTecnologias(formData).subscribe((data: any) => {
-      console.log(data);
-      this.getTecnologias();
-    }, (error) => {
-      console.log(error);
-    });
+    this.subscription = this.tecnologiasService.postTecnologias(formData)
+      .subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.getTecnologias();
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      });
   }
 
   getTecnologias(){
-    this.subscription = this.tecnologiasService.getTecnologias(this.pageSize).subscribe((data: any) => {
+
+    this.subscription = this.tecnologiasService.getTecnologias(this.page ,this.pageSize).subscribe((data: any) => {
       this.items = data.map((item: any) => {
         return {
           ...item,
@@ -74,11 +94,6 @@ export class TecnologiasComponent implements OnInit {
         }
       });
     });
-  }
-
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 
 }

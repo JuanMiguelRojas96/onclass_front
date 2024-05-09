@@ -42,6 +42,7 @@ import { TecnologiasService } from './components/shared/services/tecnologias/tec
 
 //Pipes
 import { CapitalizeFirstLetterPipe } from './components/shared/pipes/capitalize-first-letter.pipe';
+import { PaginationComponent } from './components/atomic_design/atom/pagination/pagination.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { CapitalizeFirstLetterPipe } from './components/shared/pipes/capitalize-
     TecnologiasTemplateComponent,
     CapitalizeFirstLetterPipe,
     InputComponent,
-    InputModalComponent
+    InputModalComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

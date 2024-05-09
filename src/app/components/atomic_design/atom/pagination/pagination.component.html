@@ -1,0 +1,16 @@
+<ul class="pagination">
+
+  <li class="pagination__item" *ngIf="currentPage > 1" >
+    <img class="pagination__item-arrow-left" src="../../../../../assets/images/icons/pagination-arrow.svg" alt="Página Anterior" (click)="onPrevPageClick()"></li>
+
+  <ng-container *ngFor="let page of pages">
+    <li class="pagination__item" [class.active]="page === currentPage" (click)="page !== -1 && onPageClick(page)">
+      {{ page === -1 ? '...' : page }}
+    </li>
+  </ng-container>
+
+  <li class="pagination__item" *ngIf="currentPage < totalPages">
+    <img class="pagination__item-arrow-right" src="../../../../../assets/images/icons/pagination-arrow.svg" alt="Página Siguiente" (click)="onNextPageClick()">
+  </li>
+
+</ul>
